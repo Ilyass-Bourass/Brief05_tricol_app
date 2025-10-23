@@ -17,13 +17,14 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <spring.version>5.3.31</spring.version>
-        <spring.data.version>2.7.18</spring.data.version>
-        <hibernate.version>5.6.15.Final</hibernate.version>
+        <!-- Versions pour Jakarta EE 9+ (Tomcat 10+) -->
+        <spring.version>6.0.13</spring.version>
+        <spring.data.version>3.1.5</spring.data.version>
+        <hibernate.version>6.2.13.Final</hibernate.version>
         <jackson.version>2.15.3</jackson.version>
-        <servlet.version>4.0.1</servlet.version>
-        <validation.version>2.0.1.Final</validation.version>
-        <hibernate.validator.version>6.2.5.Final</hibernate.validator.version>
+        <servlet.version>6.0.0</servlet.version>
+        <validation.version>3.0.2</validation.version>
+        <hibernate.validator.version>8.0.1.Final</hibernate.validator.version>
         <slf4j.version>2.0.9</slf4j.version>
         <mysql.version>8.0.33</mysql.version>
     </properties>
@@ -67,24 +68,24 @@
             <version>${spring.data.version}</version>
         </dependency>
 
-        <!-- Hibernate Core -->
+        <!-- Hibernate Core (Jakarta) -->
         <dependency>
-            <groupId>org.hibernate</groupId>
+            <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
 
         <!-- MySQL Connector -->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
             <version>${mysql.version}</version>
         </dependency>
 
-        <!-- Servlet API -->
+        <!-- Jakarta Servlet API (pour Tomcat 10+) -->
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
             <version>${servlet.version}</version>
             <scope>provided</scope>
         </dependency>
@@ -96,10 +97,10 @@
             <version>${jackson.version}</version>
         </dependency>
 
-        <!-- Bean Validation -->
+        <!-- Jakarta Bean Validation -->
         <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
             <version>${validation.version}</version>
         </dependency>
 
@@ -116,17 +117,17 @@
             <version>${slf4j.version}</version>
         </dependency>
 
-        <!-- JAXB API pour Java 17 (nécessaire car retiré du JDK) -->
+        <!-- JAXB API pour Java 17 -->
         <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>2.3.1</version>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>4.0.0</version>
         </dependency>
 
         <dependency>
             <groupId>org.glassfish.jaxb</groupId>
             <artifactId>jaxb-runtime</artifactId>
-            <version>2.3.8</version>
+            <version>4.0.3</version>
         </dependency>
     </dependencies>
 
@@ -153,6 +154,13 @@
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
+            </plugin>
+
+            <!-- Surefire Plugin (Tests) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
             </plugin>
         </plugins>
     </build>
