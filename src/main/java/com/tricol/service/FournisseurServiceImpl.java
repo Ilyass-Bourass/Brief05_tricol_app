@@ -98,7 +98,7 @@ public class FournisseurServiceImpl implements FournisseurService {
 
     @Override
     public List<Fournisseur> findByVille(String ville) {
-        return fournisseurRepository.findByVille(ville);
+        return fournisseurRepository.findByVilleIgnoreCase(ville);
     }
 
     @Override

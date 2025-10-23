@@ -1,0 +1,362 @@
+{
+	"info": {
+		"_postman_id": "523a9f77-d0ff-4b03-b2c4-70fbedf8092e",
+		"name": "brief05_tricol_version01_xml_annotation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42977408"
+	},
+	"item": [
+		{
+			"name": "Crud Opération",
+			"item": [
+				{
+					"name": "Create Fournisseur 01",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"societe\": \"TextilePro Maroc\",\r\n  \"email\": \"contact@textilepro.ma\",\r\n  \"ice\": \"002345678901478\",\r\n  \"adresse\": \"Zone Industrielle\",\r\n  \"contact\": \"Hassan Tazi\",\r\n  \"telephone\": \"0661234567\",\r\n  \"ville\": \"Casablanca\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tricol_war/api/v1/fournisseurs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tricol_war",
+								"api",
+								"v1",
+								"fournisseurs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Fournisseur 02",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"societe\": \"Autre Société\",\r\n  \"email\": \"autre@pro.ma\",\r\n  \"ice\": \"999999999999999\",\r\n  \"adresse\": \"Autre adresse\",\r\n  \"contact\": \"Autre contact\",\r\n  \"telephone\": \"0666666666\",\r\n  \"ville\": \"Rabat\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tricol_war/api/v1/fournisseurs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tricol_war",
+								"api",
+								"v1",
+								"fournisseurs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Fournisseurs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/tricol_war/api/v1/fournisseurs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tricol_war",
+								"api",
+								"v1",
+								"fournisseurs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fournisseur by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/tricol_war/api/v1/fournisseurs/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tricol_war",
+								"api",
+								"v1",
+								"fournisseurs",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Fournisseur",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"societe\": \"Société modifier\",\r\n  \"email\": \"contact@modieir.ma\",\r\n  \"ice\": \"119999999999900\",\r\n  \"adresse\": \"adresse modifier\",\r\n  \"contact\": \"contact modifier\",\r\n  \"telephone\": \"0666666644\",\r\n  \"ville\": \"berkane\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tricol_war/api/v1/fournisseurs/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tricol_war",
+								"api",
+								"v1",
+								"fournisseurs",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete fournisseur",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"societe\": \"Autre Société\",\r\n  \"email\": \"autre@pro.ma\",\r\n  \"ice\": \"999999999999999\",\r\n  \"adresse\": \"Autre adresse\",\r\n  \"contact\": \"Autre contact\",\r\n  \"telephone\": \"0666666666\",\r\n  \"ville\": \"Rabat\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/tricol_war/api/v1/fournisseurs/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tricol_war",
+								"api",
+								"v1",
+								"fournisseurs",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Search & Filter",
+			"item": [
+				{
+					"name": "Search by Société",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"societe\": \"TextilePro Maroc\",\r\n  \"email\": \"contactnouveau@textilepro.ma\",\r\n  \"ice\": \"002345678900011\",\r\n  \"adresse\": \"Zone\",\r\n  \"contact\": \"Hassan\",\r\n  \"telephone\": \"0661234567\",\r\n  \"ville\": \"oujda\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/tricol_war/api/v1/fournisseurs/search?societe=textilePro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tricol_war",
+								"api",
+								"v1",
+								"fournisseurs",
+								"search"
+							],
+							"query": [
+								{
+									"key": "societe",
+									"value": "textilePro"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter by Ville",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"societe\": \"TextilePro Maroc\",\r\n  \"email\": \"contactnouveau@textilepro.ma\",\r\n  \"ice\": \"002345678900011\",\r\n  \"adresse\": \"Zone\",\r\n  \"contact\": \"Hassan\",\r\n  \"telephone\": \"0661234567\",\r\n  \"ville\": \"oujda\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/tricol_war/api/v1/fournisseurs/ville/Casablanca\n",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tricol_war",
+								"api",
+								"v1",
+								"fournisseurs",
+								"ville",
+								"Casablanca\n"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Validation Tests",
+			"item": [
+				{
+					"name": "Create (Duplicate Email)",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"societe\": \"Autre Société\",\r\n  \"email\": \"contact@textilepro.ma\",\r\n  \"ice\": \"999999999999999\",\r\n  \"adresse\": \"Autre adresse\",\r\n  \"contact\": \"Autre contact\",\r\n  \"telephone\": \"0666666666\",\r\n  \"ville\": \"Rabat\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tricol_war/api/v1/fournisseurs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tricol_war",
+								"api",
+								"v1",
+								"fournisseurs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create (Duplicate ICE)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"societe\": \"TextilePro Maroc\",\r\n  \"email\": \"contactnouveau@textilepro.ma\",\r\n  \"ice\": \"002345678900011\",\r\n  \"adresse\": \"Zone\",\r\n  \"contact\": \"Hassan\",\r\n  \"telephone\": \"0661234567\",\r\n  \"ville\": \"oujda\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tricol_war/api/v1/fournisseurs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tricol_war",
+								"api",
+								"v1",
+								"fournisseurs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
