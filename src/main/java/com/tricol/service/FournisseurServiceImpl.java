@@ -38,12 +38,10 @@ public class FournisseurServiceImpl implements FournisseurService {
 
     @Override
     public Fournisseur createFournisseur(Fournisseur fournisseur) {
-        // Validation: Vérifier si email déjà existe
         if (fournisseurRepository.findByEmail(fournisseur.getEmail()).isPresent()) {
             throw new RuntimeException("Un fournisseur avec cet email existe déjà");
         }
 
-        // Validation: Vérifier si ICE déjà existe
         if (fournisseurRepository.findByIce(fournisseur.getIce()).isPresent()) {
             throw new RuntimeException("Un fournisseur avec cet ICE existe déjà");
         }
@@ -53,25 +51,21 @@ public class FournisseurServiceImpl implements FournisseurService {
 
     @Override
     public Fournisseur updateFournisseur(Long id, Fournisseur fournisseur) {
-        // Vérifier si le fournisseur existe
         Fournisseur existingFournisseur = fournisseurRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Fournisseur non trouvé avec l'ID: " + id));
 
-        // Vérifier si l'email est changé et s'il n'existe pas déjà
         if (!existingFournisseur.getEmail().equals(fournisseur.getEmail())) {
             if (fournisseurRepository.findByEmail(fournisseur.getEmail()).isPresent()) {
                 throw new RuntimeException("Un fournisseur avec cet email existe déjà");
             }
         }
 
-        // Vérifier si l'ICE est changé et s'il n'existe pas déjà
         if (!existingFournisseur.getIce().equals(fournisseur.getIce())) {
             if (fournisseurRepository.findByIce(fournisseur.getIce()).isPresent()) {
                 throw new RuntimeException("Un fournisseur avec cet ICE existe déjà");
             }
         }
 
-        // Mettre à jour les champs
         existingFournisseur.setSociete(fournisseur.getSociete());
         existingFournisseur.setAdresse(fournisseur.getAdresse());
         existingFournisseur.setContact(fournisseur.getContact());
@@ -102,12 +96,15 @@ public class FournisseurServiceImpl implements FournisseurService {
     }
 
     @Override
-    public boolean existsByEmail(String email) {
-        return fournisseurRepository.findByEmail(email).isPresent();
+    public List<Integer> getFournisseurEndByGmail() {
+        return getAllFournisseurs().stream().filter(f->f.getEmail().endsWith("@gmail.com")).
+                map(f->f.getSociete().length()).toList();
     }
 
     @Override
     public boolean existsByIce(String ice) {
         return fournisseurRepository.findByIce(ice).isPresent();
     }
+
+
 }

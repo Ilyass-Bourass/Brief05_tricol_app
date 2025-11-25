@@ -14,19 +14,14 @@ public interface FournisseurRepository extends JpaRepository<Fournisseur, Long> 
 
     List<Fournisseur> findBySociete(String societe);
 
-    // Recherche par ville
     List<Fournisseur> findByVilleIgnoreCase(String ville);
 
-    // Recherche par email
     Optional<Fournisseur> findByEmail(String email);
 
-    // Recherche par ICE
     Optional<Fournisseur> findByIce(String ice);
 
-    // Recherche par société contenant un texte (LIKE %texte%)
     List<Fournisseur> findBySocieteContainingIgnoreCase(String societe);
 
-    // Tri par nom de société
     List<Fournisseur> findAllByOrderBySocieteAsc();
 }
 
